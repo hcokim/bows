@@ -19,6 +19,14 @@ function useBowCounter(){
 			noSleep.current.disable() :
 			noSleep.current.enable();
 		setIsBowing(!isBowing);
+		toggleFullScreen();
+	}
+	function toggleFullScreen() {
+		if (!document.fullscreenElement) {
+			document.documentElement.requestFullscreen();
+		} else if (document.exitFullscreen) {
+			document.exitFullscreen();
+		}
 	}
 
 	return { isBowing, enable, disable, toggle }
