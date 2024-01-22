@@ -1,42 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { motion } from 'framer-motion'
+// import reactLogo from './assets/react.svg'
+// import viteLogo from '/vite.svg'
 import './App.css'
+import styles from "./style/app.module.css";
 
-import nosleep from 'nosleep.js'
+import { useStates, useStatesDispatch } from './lib/statesProvider.jsx'
 
 function App() {
 
-	const noSleep = new nosleep();
-	const [count, setCount] = useState(0);
-	const [wakeLock, setWakeLock] = useState(false);
-
-	const btnLabel = wakeLock ?
-		'Stop bowing' : 'Start bowing';
-
-	function toggleWake() {
-		setWakeLock(prev => {
-			if (prev) {
-				noSleep.disable();
-			} else {
-				noSleep.enable();
-			}
-			return !prev;
-		});
-	}
-
-	function reset(){
-		setCount(0);
-	}
+	const { count } = useStates();
+	const dispatch = useStatesDispatch();
 
 	return (
 		<div className="App">
-			<h1>Bow Counter</h1>
+			<Cover />
 			<h1>{count}</h1>
-			<button onMouseDown={toggleWake}>{btnLabel}</button>
-			<button onMouseDown={() => setCount(prev => prev + 1)}>Bow</button>
-			{!wakeLock && <button onMouseDown={reset}>Reset</button>}
+			<button onMouseDown={() => dispatch("increase")}>Bow</button>
 		</div>
+	)
+}
+
+function Cover(){
+
+	const variants = {
+		hidden: { y: -240 },
+		visible: { y: 0 },
+	};
+
+	const { isBowing } = useStates();
+	const dispatch = useStatesDispatch();
+
+	const btnLabel = isBowing ? 'Stop' : 'Start';
+	const animate = isBowing ? "hidden" : "visible";
+
+	return (
+		<motion.div
+			className={styles.cover}
+			variants={variants}
+			initial="visible"
+			animate={animate}>
+				<h1>Bow Counter</h1>
+				<button onMouseDown={() => dispatch("toggle")}>{btnLabel}</button>
+				<button onMouseDown={() => dispatch("reset")}>Reset</button>
+		</motion.div>
 	)
 }
 
