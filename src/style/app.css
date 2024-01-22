@@ -39,6 +39,7 @@
 	place-content: center;
 	justify-content: center;
 	overflow: hidden;
+	user-select: none;
 }
 
 :root {
