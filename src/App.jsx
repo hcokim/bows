@@ -42,7 +42,7 @@ function Cover(){
 				<h1>Bow Counter</h1>
 				<div className={styles.buttons}>
 					{isBowing && <button onPointerDown={() => dispatch("reset")}>Reset</button>}
-					<button onPointerDown={() => dispatch("toggle")}>{btnLabel}</button>
+					<button onClick={() => dispatch("toggle")}>{btnLabel}</button>
 				</div>
 		</motion.div>
 	)
