@@ -13,7 +13,11 @@ export default defineConfig({
       manifest: {
         name: 'Bow Counter',
         short_name: 'BowCounter',
+        id: "/?source=pwa",
+        scope: "/",
+        start_url: "/",
         theme_color: '#474747',
+        display: "standalone",
         icons: [
           {
             src: 'pwa-192x192.png',
@@ -29,4 +33,5 @@ export default defineConfig({
       },
     }),
   ],
+  define: { global: 'window' },
 })
