@@ -57,8 +57,10 @@ function Counter(){
 		<div
 			className={styles.button}
 			onMouseDown={() => dispatch("increase")}>
-				<h1>{count}</h1>
-				<div className={styles.increment}>+</div>
+				<div><p>{count}</p></div>
+				<div><p>+</p></div>
+				{/* <h1>{count}</h1>
+				<div className={styles.increment}>+</div> */}
 		</div>
 	)
 }

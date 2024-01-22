@@ -22,7 +22,10 @@
 	user-select: none;
 	display: grid;
 	place-content: center;
+	padding-top: 25%;
+	box-sizing: border-box;
 	background-color: #404040;
+	text-align: center;
 }
 .buttons {
 	position: absolute;
