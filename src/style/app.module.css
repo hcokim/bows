@@ -30,7 +30,7 @@
 }
 .buttons {
 	position: absolute;
-	bottom: 1.5rem;
+	bottom: max(1.5rem, env(safe-area-inset-bottom));
 	left: 1.5rem;
 	width: calc(100% - 3rem);
 	display: flex;

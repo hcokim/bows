@@ -16,7 +16,7 @@ export default defineConfig({
         id: "/?source=pwa",
         scope: "/",
         start_url: "/",
-        theme_color: '#474747',
+        theme_color: '#EDEDED',
         display: "standalone",
         icons: [
           {
