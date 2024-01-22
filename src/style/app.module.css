@@ -26,6 +26,7 @@
 	box-sizing: border-box;
 	background-color: #404040;
 	text-align: center;
+	cursor: pointer;
 }
 .buttons {
 	position: absolute;
