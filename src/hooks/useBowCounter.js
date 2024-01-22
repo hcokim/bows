@@ -7,12 +7,12 @@ function useBowCounter(){
 	const [isBowing, setIsBowing] = useState(false);
 
 	function enable(){
-		noSleep.current.enable();
 		setIsBowing(true);
+		noSleep.current.enable();
 	}
 	function disable(){
-		noSleep.current.disable();
 		setIsBowing(false);
+		noSleep.current.disable();
 	}
 	function toggle(){
 		isBowing ?
