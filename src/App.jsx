@@ -41,8 +41,8 @@ function Cover(){
 			animate={animate}>
 				<h1>Bow Counter</h1>
 				<div className={styles.buttons}>
-					{isBowing && <button onMouseDown={() => dispatch("reset")}>Reset</button>}
-					<button onMouseDown={() => dispatch("toggle")}>{btnLabel}</button>
+					{isBowing && <button onPointerDown={() => dispatch("reset")}>Reset</button>}
+					<button onClick={() => dispatch("toggle")}>{btnLabel}</button>
 				</div>
 		</motion.div>
 	)
@@ -56,7 +56,7 @@ function Counter(){
 	return (
 		<div
 			className={styles.button}
-			onMouseDown={() => dispatch("increase")}>
+			onPointerDown={() => dispatch("increase")}>
 				<div><p>{count}</p></div>
 				<div><p>+</p></div>
 				{/* <h1>{count}</h1>
