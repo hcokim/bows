@@ -38,7 +38,7 @@ function Cover(){
 			animate={animate}>
 				<h1>Bow Counter</h1>
 				<div className={styles.buttons}>
-					<button onMouseDown={() => dispatch("reset")}>Reset</button>
+					{isBowing && <button onMouseDown={() => dispatch("reset")}>Reset</button>}
 					<button onMouseDown={() => dispatch("toggle")}>{btnLabel}</button>
 				</div>
 		</motion.div>

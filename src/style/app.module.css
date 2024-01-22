@@ -43,9 +43,9 @@
 	height: 25%;
 	text-align: center;
 	background: rgba(255,255,255,0.02);
-	color: rgba(255,255,255,0.5);
+	color: rgba(255,255,255,0.25);
 	transition: background 0.08s;
 	&:active {
-		background: rgba(255,255,255,0.05);
+		color: rgba(255,255,255,0.35);
 	}
 }
