@@ -1,13 +1,53 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bow Counter</title>
+	<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+	<h1>Bow Counter</h1>
+
+	<button id="start">Start bowing</button>
+	<div id="bowCount">0</div>
+
+	<button id="doCount">Bow</button>
+	<button id="reset">Reset</button>
+	
+	<script src="./public/NoSleep.min.js"></script>
+	<script>
+		const noSleep = new NoSleep();
+		let isBowing = false;
+		
+		const button = document.getElementById('start');
+		const btnReset = document.getElementById('reset');
+		button.addEventListener('click', () => {
+			if (isBowing) {
+				isBowing = false;
+				button.textContent = 'Start bowing';
+				btnReset.classList.remove('hidden');
+				noSleep.disable();
+			} else {
+				isBowing = true;
+				button.textContent = 'Stop bowing';
+				btnReset.classList.add('hidden');
+				noSleep.enable();
+			}
+		}, false);
+
+		const doCount = document.getElementById('doCount');
+		doCount.addEventListener('click', () => {
+			const bowCount = document.getElementById('bowCount');
+			bowCount.textContent = parseInt(bowCount.textContent) + 1;
+		}, false);
+
+		btnReset.addEventListener('click', () => {
+			const bowCount = document.getElementById('bowCount');
+			bowCount.textContent = 0;
+		}, false);
+
+	</script>
+</body>
 </html>
