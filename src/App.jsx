@@ -58,9 +58,7 @@ function Counter(){
 			className={styles.button}
 			onPointerDown={() => dispatch("increase")}>
 				<div><p>{count}</p></div>
-				<motion.div whileTap={{ scale: 0.95 }}>
-					<p>+</p>
-				</motion.div>
+				<div><p>+</p></div>
 		</div>
 	)
 }
