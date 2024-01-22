@@ -5,8 +5,11 @@ import "./style/app.css";
 import styles from "./style/app.module.css";
 
 import { useStates, useStatesDispatch } from './lib/statesProvider.jsx'
+import useKeyboard from './hooks/useKeyboard.js';
 
 function App() {
+
+	useKeyboard();
 
 	return (
 		<div id="app">

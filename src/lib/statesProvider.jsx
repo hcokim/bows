@@ -11,7 +11,7 @@ const StatesDispatchContext = createContext(null);
 export default function StatesProvider({children}){
 
 	const [ count, setCount ] = useState(0);
-	const { isBowing, toggle } = useBowCounter();
+	const { isBowing, enable, toggle } = useBowCounter();
 
 	const states = { count, isBowing };
 
@@ -19,6 +19,7 @@ export default function StatesProvider({children}){
 		reset: () => setCount(0),
 		increase: () => setCount(prev => prev + 1),
 		decrease: () => setCount(prev => prev - 1),
+		enable: () => enable(),
 		toggle: () => toggle(),
 	};
 	
