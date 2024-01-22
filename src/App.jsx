@@ -25,13 +25,17 @@ function App() {
 		});
 	}
 
+	function reset(){
+		setCount(0);
+	}
+
 	return (
 		<div className="App">
 			<h1>Bow Counter</h1>
 			<h1>{count}</h1>
 			<button onMouseDown={toggleWake}>{btnLabel}</button>
 			<button onMouseDown={() => setCount(prev => prev + 1)}>Bow</button>
-			{!wakeLock && <button>Reset</button>}
+			{!wakeLock && <button onMouseDown={reset}>Reset</button>}
 		</div>
 	)
 }
