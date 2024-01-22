@@ -1,6 +1,47 @@
 .cover {
-	background-color: #282c34;
-	position: fixed;
-	top: 50%; left: 50%;
-	transform: translate(-50%, -50%);
+	background-color: var(--cover);
+	position: absolute;
+	display: grid;
+	place-content: center;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+}
+.button {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	color: var(--color-white);
+	font-size: var(--text-mega);
+	font-weight: var(--weight-bold);
+	user-select: none;
+	display: grid;
+	place-content: center;
+	background-color: #404040;
+}
+.buttons {
+	position: absolute;
+	bottom: 1.5rem;
+	left: 1.5rem;
+	width: calc(100% - 3rem);
+	display: flex;
+	gap: 0.75rem;
+	& > button {
+		flex: 1;
+		outline: none;
+	}
+}
+.increment {
+	position: absolute;
+	top: 76%;
+	width: 100%;
+	height: 50%;
+	text-align: center;
+	background: rgba(255,255,255,0.05);
+	border-radius: 50%;
+	color: rgba(255,255,255,0.5);
+	transition: background 0.08s;
+	&:active {
+		background: rgba(255,255,255,0.08);
+	}
 }
