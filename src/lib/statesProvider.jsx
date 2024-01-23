@@ -9,7 +9,7 @@ export default function StatesProvider({children}){
 
 	const [ count, setCount ] = useState(0);
 	const [ data, updateData ] = useDataStore();
-	const { isBowing, enable, increase, toggle } = useBowCounter({ data });
+	const { isBowing, enable, disable, increase, toggle } = useBowCounter({ data });
 
 	const states = { count, isBowing, data };
 
@@ -18,6 +18,7 @@ export default function StatesProvider({children}){
 		increase: () => increase({ data, setCount, updateData }),
 		decrease: () => setCount(prev => prev - 1),
 		enable: () => enable(),
+		disable: () => disable(),
 		toggle: () => toggle(),
 		updateData: props => updateData(props),
 	};

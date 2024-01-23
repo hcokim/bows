@@ -8,8 +8,8 @@ function useKeyboard(){
 	const { isBowing } = useStates();
 
 	useEffect(() => {
-		window.addEventListener('keydown', keydown);
-		return () => window.removeEventListener('keydown', keydown);
+		document.addEventListener('keydown', keydown);
+		return () => document.removeEventListener('keydown', keydown);
 	}, [isBowing]);
 
 	function keydown(event){
@@ -20,6 +20,8 @@ function useKeyboard(){
 				dispatch("enable");
 				resetCover();
 			}
+		} else if (event.key === "Escape"){
+			dispatch("disable");
 		}
 	}
 
