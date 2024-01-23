@@ -6,7 +6,8 @@ function useDataStore(){
 
 	function updateData(newData){
 		setData(newData);
-		localStorage.setItem('data', JSON.stringify(newData));
+		const data = JSON.stringify(newData);
+		localStorage.setItem('data', data);
 	}
 
 	return [ data, updateData ]
