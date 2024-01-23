@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useStates, useStatesDispatch } from "../lib/statesProvider";
+import resetCover from "../helpers/resetCover";
 
 function useKeyboard(){
 
@@ -13,9 +14,12 @@ function useKeyboard(){
 
 	function keydown(event){
 		if (event.key === " "){
-			isBowing ?
-				dispatch("increase") :
+			if (isBowing){
+				dispatch("increase");
+			} else {
 				dispatch("enable");
+				resetCover();
+			}
 		}
 	}
 

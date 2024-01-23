@@ -25,6 +25,7 @@
 	/* border-top: 1px solid var(--divider); */
 	border-bottom: 1px solid var(--divider);
 	background-color: var(--cover);
+	z-index: 1;
 }
 .day {
 	width: calc(100% / 7);
