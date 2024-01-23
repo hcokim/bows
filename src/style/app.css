@@ -2,13 +2,17 @@
 	--background: #474747;
 	--cover: #EDEDED;
 	--button: #E18939;
+	--accent: #E18939;
+	--divider: rgba(0,0,0,0.1);
 
 	--color-white: #FFF;
 	--color-text: #323232;
+	--color-disabled: rgba(0,0,0,0.54);
 
 	--text-mega: 11em;
 	--text-h1: 5em;
 	--text-h2: 2.5em;
+	--text-sub: 0.85rem;
 	--weight-bold: 600;
 
 	--radius-mid: 12px;

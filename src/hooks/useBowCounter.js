@@ -1,10 +1,12 @@
 import { useState, useRef } from 'react';
 import nosleep from 'nosleep.js';
+import dayjs from 'dayjs';
 
 function useBowCounter(){
 
 	const noSleep = useRef(new nosleep());
 	const [isBowing, setIsBowing] = useState(false);
+	const dayKey = dayjs().format('YYYYMMDD');
 
 	function enable(){
 		setIsBowing(true);
@@ -21,6 +23,12 @@ function useBowCounter(){
 		setIsBowing(!isBowing);
 		// toggleFullScreen();
 	}
+	function increase({ data, setCount, updateData }){
+		setCount(prev => prev + 1);
+		const count = data[dayKey] ? data[dayKey].count + 1 : 1;
+		const newData = {...data, [dayKey]: { count }};
+		updateData(newData);
+	}
 	function toggleFullScreen() {
 		if (!document.fullscreenElement) {
 			document.documentElement.requestFullscreen();
@@ -29,7 +37,7 @@ function useBowCounter(){
 		}
 	}
 
-	return { isBowing, enable, disable, toggle }
+	return { isBowing, enable, disable, increase, toggle }
 }
 
 export default useBowCounter;

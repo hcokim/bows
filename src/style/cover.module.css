@@ -1,0 +1,56 @@
+.cover {
+	background-color: var(--cover);
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	:global(h1){
+		font-size: var(--text-h2);
+		font-weight: var(--weight-bold);
+	}
+}
+.tabBar {
+	display: flex;
+	flex-direction: row;
+	border-bottom: 1px solid var(--divider);
+	& > div {
+		flex: 1;
+		text-align: center;
+		line-height: 4rem;
+		border-bottom: 1px solid transparent;
+		&[data-active="true"]{
+			border-bottom: 1px solid #000;
+		}
+	}
+}
+.tabs {
+
+}
+.pages {
+	overflow-x: scroll;
+	overflow-y: hidden;
+	scroll-snap-type: x mandatory;
+	position: relative;
+	white-space: nowrap;
+	flex: 1;
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+.page {
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+	scroll-snap-align: start;
+	scroll-snap-stop: always;
+	overflow-y: auto;
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+.title {
+	text-align: center;
+	transform: translateY(32vh);
+}
