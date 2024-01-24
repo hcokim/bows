@@ -20,6 +20,7 @@
 		text-align: center;
 		line-height: 4rem;
 		border-bottom: 1px solid transparent;
+		cursor: pointer;
 		&[data-active="true"]{
 			border-bottom: 1px solid #000;
 		}

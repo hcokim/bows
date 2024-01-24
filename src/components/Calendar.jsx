@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import dayjs from "dayjs";
 import styles from "../style/calendar.module.css";
@@ -83,7 +83,7 @@ const Day = ({ date, props }) => {
 	const today = dayjs();
 	const isToday = date.isSame(today, "day");
 	const isFiller = props.isFiller;
-
+	const touchTimer = useRef();
 	const classList = [styles.day];
 
 	if ( isToday ) classList.push(styles.today);
@@ -91,10 +91,26 @@ const Day = ({ date, props }) => {
 
 	const classNames = classList.join(' ');
 
+	const dispatch = useStatesDispatch();
+
+	function onPointerDown(){
+		touchTimer.current = setTimeout(() => {
+			const message = `Reset bows on ${date.format("MMMM DD YYYY")}?`;
+			const doReset = confirm(message);
+			if (!doReset) return;
+			dispatch("resetBows", { date: key });
+		}, 1000);
+	}
+	function onPointerUp(){
+		clearTimeout(touchTimer.current);
+	}
+
 	return (
 		<motion.div
 			className={classNames}
-			data-date={key}>
+			data-date={key}
+			onPointerDown={onPointerDown}
+			onPointerUp={onPointerUp}>
 				<div className="label">{date.format('D')}</div>
 				<div className="record">{dayData.count}</div>
 		</motion.div>

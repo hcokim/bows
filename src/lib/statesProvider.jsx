@@ -9,7 +9,7 @@ export default function StatesProvider({children}){
 
 	const [ count, setCount ] = useState(0);
 	const [ data, updateData ] = useDataStore();
-	const { isBowing, enable, disable, increase, toggle } = useBowCounter({ data });
+	const { isBowing, enable, disable, increase, toggle, resetDate } = useBowCounter();
 
 	const states = { count, isBowing, data };
 
@@ -21,6 +21,7 @@ export default function StatesProvider({children}){
 		disable: () => disable(),
 		toggle: () => toggle(),
 		updateData: props => updateData(props),
+		resetBows: props => resetDate({ date: props.date, data, updateData }),
 	};
 	
 	const dispatch = (action, props) => {

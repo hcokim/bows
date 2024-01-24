@@ -20,7 +20,7 @@ function useBowCounter(){
 		isBowing ?
 			noSleep.current.disable() :
 			noSleep.current.enable();
-		setIsBowing(!isBowing);
+		setIsBowing(prev => !prev);
 		// toggleFullScreen();
 	}
 	function increase({ data, setCount, updateData }){
@@ -28,6 +28,11 @@ function useBowCounter(){
 		const count = data[dayKey] ? data[dayKey].count + 1 : 1;
 		const newData = {...data, [dayKey]: { count }};
 		updateData(newData);
+	}
+	function resetDate({ date, data, updateData }){
+		const updated = {...data};
+		delete updated[date];
+		updateData(updated);
 	}
 	function toggleFullScreen() {
 		if (!document.fullscreenElement) {
@@ -37,7 +42,7 @@ function useBowCounter(){
 		}
 	}
 
-	return { isBowing, enable, disable, increase, toggle }
+	return { isBowing, enable, disable, increase, toggle, resetDate }
 }
 
 export default useBowCounter;
