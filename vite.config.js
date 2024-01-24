@@ -12,7 +12,7 @@ export default defineConfig({
       includeAssets: ['favicon.svg', 'mask-icon.svg', 'apple-touch-icon.png'],
       manifest: {
         name: 'Bow Counter',
-        short_name: 'BowCounter',
+        short_name: 'Counter',
         id: "/?source=pwa",
         scope: "/",
         start_url: "/",
