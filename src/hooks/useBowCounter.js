@@ -17,11 +17,15 @@ function useBowCounter(){
 		noSleep.current.disable();
 	}
 	function toggle(){
-		isBowing ?
-			noSleep.current.disable() :
-			noSleep.current.enable();
-		setIsBowing(prev => !prev);
-		// toggleFullScreen();
+		const nosleep = noSleep.current;
+		const isEnabled = nosleep.isEnabled;
+		if (isEnabled){
+			nosleep.disable();
+			setIsBowing(false);
+		} else {
+			nosleep.enable();
+			setIsBowing(true);
+		}
 	}
 	function increase({ data, setCount, updateData }){
 		setCount(prev => prev + 1);

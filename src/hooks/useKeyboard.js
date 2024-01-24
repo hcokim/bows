@@ -10,7 +10,7 @@ function useKeyboard(){
 	useEffect(() => {
 		document.addEventListener('keydown', keydown);
 		return () => document.removeEventListener('keydown', keydown);
-	}, [isBowing]);
+	}, [isBowing, dispatch]);
 
 	function keydown(event){
 		if (event.key === " "){

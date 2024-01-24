@@ -83,7 +83,10 @@ function FirstTab(){
 			<div className={cover.title}><h1>Bow Counter</h1></div>
 			<div className={styles.buttons}>
 				{isBowing && <button onPointerDown={() => dispatch("reset")}>Reset</button>}
-				<button onClick={() => dispatch("toggle")}>{btnLabel}</button>
+				<button onClick={() => {
+					dispatch("toggle");
+					document.activeElement.blur();
+				}}>{btnLabel}</button>
 			</div>
 		</div>
 	)
