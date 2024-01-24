@@ -99,7 +99,7 @@ const Day = ({ date, props }) => {
 			const doReset = confirm(message);
 			if (!doReset) return;
 			dispatch("resetBows", { date: key });
-		}, 750);
+		}, 500);
 	}
 	function onPointerUp(){
 		clearTimeout(touchTimer.current);
