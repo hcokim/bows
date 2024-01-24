@@ -99,7 +99,7 @@ const Day = ({ date, props }) => {
 			const doReset = confirm(message);
 			if (!doReset) return;
 			dispatch("resetBows", { date: key });
-		}, 1000);
+		}, 750);
 	}
 	function onPointerUp(){
 		clearTimeout(touchTimer.current);
@@ -110,6 +110,7 @@ const Day = ({ date, props }) => {
 			className={classNames}
 			data-date={key}
 			onPointerDown={onPointerDown}
+			onPointerMove={() => clearTimeout(touchTimer.current)}
 			onPointerUp={onPointerUp}>
 				<div className="label">{date.format('D')}</div>
 				<div className="record">{dayData.count}</div>
