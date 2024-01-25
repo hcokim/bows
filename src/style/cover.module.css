@@ -52,6 +52,8 @@
 	}
 }
 .title {
+	position: absolute;
 	text-align: center;
-	transform: translateY(32vh);
+	left: 50%; top: calc(50% - 2rem);
+	transform: translate(-50%, -50%);
 }
